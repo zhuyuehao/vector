@@ -1,0 +1,16 @@
+version: '2'
+services:
+  vector:
+    image: leo625/faiss-web-cpu:v20190522
+    volumes:
+      - /Users/zhuyuehao/Documents/PycharmProjects/iwhalecloud/vector:/data
+    working_dir: /data/bin
+    entrypoint:
+      - sh
+      - faiss_web_service.sh
+    restart: always
+    ports:
+      - 5006:5000
+    container_name: vector-sample
+    environment:
+      - TZ=Asia/Shanghai
